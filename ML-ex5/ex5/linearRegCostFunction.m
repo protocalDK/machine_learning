@@ -20,10 +20,19 @@ grad = zeros(size(theta));
 %
 
 
+% compute regularized side
+n = size(X,2);
+reg = sum(theta(2:end).^2);
 
+% compute hypoth
+h_theta =  X * theta;
 
+% calculate the regularized linear regression cost function
+J = 1/(2 * m) * (sum(((h_theta) - y).^2) + lambda * reg);
 
-
+% calculate the regularized linear regression gradient
+grad = 1/m * X' *(h_theta - y);
+grad(2:end) = grad(2:end) + lambda/m * theta(2:end);
 
 
 
