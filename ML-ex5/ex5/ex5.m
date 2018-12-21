@@ -48,7 +48,9 @@ pause;
 %
 
 theta = [1 ; 1];
-J = linearRegCostFunction([ones(m, 1) X], y, theta, 1);
+
+r = size(Xtest, 1);
+J = linearRegCostFunction([ones(r, 1) X], y, theta, 1);
 
 fprintf(['Cost at theta = [1 ; 1]: %f '...
          '\n(this value should be about 303.993192)\n'], J);
@@ -224,3 +226,10 @@ end
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
+
+
+%3.4
+lambda = 3;
+[theta] = trainLinearReg(X_poly, y, lambda);
+[Jtest, gradtest] = linearRegCostFunction(X_poly_test, ytest, theta, 0);
+fprintf('Best error: %f\n', Jtest);
