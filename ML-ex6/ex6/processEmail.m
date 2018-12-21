@@ -98,12 +98,20 @@ while ~isempty(email_contents)
     %
 
 
+    % email_contents: mang chua toan bo chuoi cua email da dc xu li
+    % str: chuoi dang xet hien tai trong email_contents
+    % vocabList: mang chua chuoi lay tu vocab.txt
 
 
+    for i = 1 : length(vocabList),
+        if (strcmp(str,vocabList{i}) == 1)
+            word_indices = [word_indices; i];
+            break;
+        end;
+    end;
 
 
-
-
+    % word_indices = [word_indices ; find(ismember(vocabList,str))'];
 
 
     % =============================================================
