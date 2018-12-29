@@ -21,8 +21,11 @@ S = zeros(n);
 %
 
 
+% compute the coveriance matrix
+sigma = (1/m) * (X' * X);
 
 
+[U,S,V] = svd(sigma);
 
 
 
